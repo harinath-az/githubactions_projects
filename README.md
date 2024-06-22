@@ -28,11 +28,11 @@ Each workflow consists of jobs, and each job runs in an instance of a virtual ma
 
 ### Basic structure of the repository
 
-<img src="https://github.com/harinath-az/githubactions_projects/blob/main/directory.png" alt="Basic structure of repository" width="300" height="200">
+<img src="https://github.com/harinath-az/githubactions_projects/blob/main/images/directory.png" width="300" height="200">
 
 ### Workflow defined in the ci.yml file
 
-<img src = "https://github.com/harinath-az/githubactions_projects/blob/main/ci.png" width = "400" height = "500">
+<img src = "https://github.com/harinath-az/githubactions_projects/blob/main/images/ci.png" width = "400" height = "500">
 
 
 
@@ -107,9 +107,26 @@ GitHub-hosted runners, managed by GitHub, are free to use for public repositorie
 
 When an organization decides their code needs to be private, and they are creating private repositories, self-hosted runners provide enhanced control over the execution environment, ensuring the code and build processes remain within the organization's secure infrastructure.
 
-Even for public repositories, there are cases where the project might need a significant amount of resources (e.g., high CPU, memory, or specialized hardware). Self-hosted runners can be provisioned with the necessary resources to handle these demanding workloads.
+Even for public repositories, there are cases where the project might need a significant amount of resources (e.g., high CPU, memory, or specialized hardware). Self-hosted runners can be provisioned with the necessary resources to handle these demanding workloads.Sometimes, a project requires specific software packages or configurations that are not available on GitHub-hosted runners. With self-hosted runners, you can install and configure any software or dependencies your project needs.
 
-Sometimes, a project requires specific software packages or configurations that are not available on GitHub-hosted runners. With self-hosted runners, you can install and configure any software or dependencies your project needs.
+### How to check for errors
+Once we make any changes in the repository and press "Commit changes," GitHub Actions looks for the workflow file located in the .github/workflows directory within the repository. Upon finding the YAML file, GitHub Actions attempts to execute the jobs specified in the workflow file.
+
+### Workflow Execution Indicators
+
+**Yellow Dot:** While GitHub Actions is running the tasks mentioned in the workflow file, a yellow dot will appear next to the commit on the main branch. This indicates that the workflow is in progress.
+
+<img src="https://github.com/harinath-az/githubactions_projects/blob/main/images/initial_yellow.png" width="650" height="300">
+<b>Green Tick:</b> Once all the jobs are successfully completed, the yellow dot will change to a green tick mark. This indicates that the workflow has finished executing all tasks without any errors.
+
+<img src="https://github.com/harinath-az/githubactions_projects/blob/main/images/tick.png" width="450" height="250">
+<b>Red X:</b> If there are any errors during the execution, a red X mark will appear. You can view the errors by clicking on the dot or X symbol, which will take you to the detailed logs showing what went wrong.
+
+<img src="https://github.com/harinath-az/githubactions_projects/blob/main/images/error.png" width="650" height="250">
+
+
+
+
 
 
 
