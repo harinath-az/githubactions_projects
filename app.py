@@ -1,6 +1,8 @@
-def main():
-    print("Hello, World!")
-    # The above function is used to print what ever is written inside it.
+# app.py
+# This is a test commit
+def add(a, b):
+    return a + b
 
-if __name__ == "__main__":
-    main()
+def test_add():
+    assert add(1, 2) == 3
+    assert add(1, -1) == 0
