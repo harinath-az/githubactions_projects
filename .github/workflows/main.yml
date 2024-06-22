@@ -1,24 +1,28 @@
-name: Python CI
+name: My First GitHub Actions
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+    strategy:
+      matrix:
+        python-version: [3.8, 3.9]
 
+    steps:
+    - uses: actions/checkout@v3
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.x'
+        python-version: ${{ matrix.python-version }}
 
     - name: Install dependencies
       run: |
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        python -m pip install --upgrade pip
+        pip install pytest
 
     - name: Run tests
-      run: python -m unittest discover
+      run: |
+        cd src
+        python -m pytest addition.py
